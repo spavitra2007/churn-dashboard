@@ -301,8 +301,8 @@ elif page == "Recommendation System":
     """, unsafe_allow_html=True)
     
     # Load the requested data files
-    df_preds2 = load_predictions2()
-    df_recos = load_recos()
+    df_preds2 = load_predictions2().copy()
+    df_recos = load_recos().copy()
         
     if df_preds2.empty:
         st.warning(f"Could not load predictions data from: C:\\Users\\csubb\\Downloads\\customer_predictions (2).csv")
