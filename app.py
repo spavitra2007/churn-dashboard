@@ -147,9 +147,8 @@ def load_ultimate():
 
 @st.cache_data
 def load_predictions2():
-    path = r"C:\Users\csubb\Downloads\customer_predictions (2).csv"
-    if os.path.exists(path):
-        return pd.read_csv(path)
+    if os.path.exists("customer_predictions.csv"):
+        return pd.read_csv("customer_predictions.csv")
     return pd.DataFrame()
 
 
@@ -443,7 +442,7 @@ elif page == "Recommendation System":
 
     if df_preds2.empty:
         st.warning(
-            "Could not load predictions data from: C:\\Users\\csubb\\Downloads\\customer_predictions (2).csv"
+            "Could not load predictions data from: customer_predictions.csv"
         )
     elif df_recos.empty:
         st.warning(
