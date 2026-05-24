@@ -140,8 +140,8 @@ def load_predictions():
 
 @st.cache_data
 def load_ultimate():
-    if os.path.exists("Ultimate_Customer_Intelligence.xlsx"):
-        return pd.read_excel("Ultimate_Customer_Intelligence.xlsx", engine="openpyxl")
+    if os.path.exists("Ultimate_Customer_Intelligence.csv"):
+        return pd.read_csv("Ultimate_Customer_Intelligence.csv")
     return pd.DataFrame()
 
 
