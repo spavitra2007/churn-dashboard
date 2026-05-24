@@ -134,6 +134,25 @@ def load_ultimate():
         return pd.read_excel("Ultimate_Customer_Intelligence.xlsx", engine='openpyxl')
     return pd.DataFrame()
 
+@st.cache_data
+def load_predictions2():
+    path = r"C:\Users\csubb\Downloads\customer_predictions (2).csv"
+    if os.path.exists(path):
+        return pd.read_csv(path)
+    return pd.DataFrame()
+
+@st.cache_data
+def load_recos():
+    if os.path.exists("customer_product_recommendations.csv"):
+        return pd.read_csv("customer_product_recommendations.csv")
+    return pd.DataFrame()
+
+@st.cache_data
+def load_retention_strategies():
+    if os.path.exists("customer_retention_strategies.csv"):
+        return pd.read_csv("customer_retention_strategies.csv")
+    return pd.DataFrame()
+
 # Helper function to create a semi-circle gauge
 def make_gauge(score, color):
     fig = go.Figure(go.Indicator(
@@ -282,21 +301,13 @@ elif page == "Recommendation System":
     """, unsafe_allow_html=True)
     
     # Load the requested data files
-    path_preds2 = r"C:\Users\csubb\Downloads\customer_predictions (2).csv"
-    path_recos = "customer_product_recommendations.csv"
-    
-    df_preds2 = pd.DataFrame()
-    df_recos = pd.DataFrame()
-    
-    if os.path.exists(path_preds2):
-        df_preds2 = pd.read_csv(path_preds2)
-    if os.path.exists(path_recos):
-        df_recos = pd.read_csv(path_recos)
+    df_preds2 = load_predictions2()
+    df_recos = load_recos()
         
     if df_preds2.empty:
-        st.warning(f"Could not load predictions data from: {path_preds2}")
+        st.warning(f"Could not load predictions data from: C:\\Users\\csubb\\Downloads\\customer_predictions (2).csv")
     elif df_recos.empty:
-        st.warning(f"Could not load recommendations data from: {path_recos} (assuming this is the recommendation CSV you meant)")
+        st.warning(f"Could not load recommendations data from: customer_product_recommendations.csv")
     else:
         # Fallback: if df_preds2 is missing customer_id (e.g. it's a test set), map it from df_recos
         if 'customer_id' not in df_preds2.columns and 'customer_id' in df_recos.columns:
@@ -546,13 +557,10 @@ elif page == "Retention System":
     """, unsafe_allow_html=True)
     
     # Load Data
-    path_data = "customer_retention_strategies.csv"
-    df_seg = pd.DataFrame()
-    if os.path.exists(path_data):
-        df_seg = pd.read_csv(path_data)
+    df_seg = load_retention_strategies()
         
     if df_seg.empty:
-        st.warning(f"Could not load intelligence data from {path_data}")
+        st.warning("Could not load intelligence data from customer_retention_strategies.csv")
     else:
         high_risk = df_seg.copy()
             
