@@ -11,7 +11,7 @@ This repository contains an end-to-end intelligent banking analytics system. It 
 
 ## Data Files Used
 
-The dashboard and models rely on the following datasets to generate insights:
+The dashboard and models rely on the following datasets to generate insights. **For a full breakdown of the columns and data structures, see the [Predictions Data Dictionary](PREDICTIONS_DOCUMENTATION.md).**
 
 ### Main Application Datasets
 - `customer_predictions.csv`: Contains the output of the supervised churn prediction model, including Churn Probability and Risk Segments.
