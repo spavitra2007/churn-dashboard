@@ -1,5 +1,7 @@
 # ChurnData Pro - Intelligent Banking Dashboard
 
+🟢 **Live Application:** [View the Deployed Dashboard Here](https://spavitra2007-churn-dashboard-app-uiq9cg.streamlit.app/)
+
 This repository contains an end-to-end intelligent banking analytics system. It integrates predictive churn modeling with 6 behavioral AI clustering models to provide a real-time Streamlit dashboard with actionable, cross-indexed retention strategies, product recommendations, and deep financial diagnostics.
 
 ## 🧠 The 6 Behavioral AI Models (Feature Engineering)
