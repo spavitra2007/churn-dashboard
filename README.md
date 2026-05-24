@@ -40,14 +40,3 @@ If you fork or clone this repository, it is completely ready to run on your loca
    ```
 3. Open the provided localhost URL (usually `http://localhost:8501`) in your browser to interact with the dashboard.
 
-## 🌐 How to Deploy to the Web
-
-Because this repository contains no hardcoded local paths and tracks all necessary CSV databases, you can easily deploy it to the web for free using Streamlit Community Cloud:
-
-1. Go to [share.streamlit.io](https://share.streamlit.io) and log in with your GitHub account.
-2. Click **New App**.
-3. Select your repository (`your-username/churn-dashboard`).
-4. Set the **Main file path** to `app.py`.
-5. Click **Deploy**.
-
-Within minutes, your dashboard will be live on a public URL!
